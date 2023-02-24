@@ -44,7 +44,6 @@ public class JavaOopTest {
 		assertTrue(pizzad.open);
 		assertTrue(topchippy.open);
 	}
-
 	@Test
 	public void testRatings() {
 		BigMamaPizza mamapizza = new BigMamaPizza();
@@ -70,4 +69,25 @@ public class JavaOopTest {
 		assertEquals(pizzad.showDeliveries(), "Has delivered 6");
 		assertEquals(topchippy.showDeliveries(), "Has delivered 3");
 	}
-}
+	
+	@Test
+	public void testBadRating() {
+		BigMamaPizza mamapizza = new BigMamaPizza();		
+		assertEquals(mamapizza.giveRating(3), "Don't bother coming again");
+		}
+	
+	@Test
+	public void testGoodRating() {
+		BigMamaPizza mamapizza = new BigMamaPizza();
+		
+		assertEquals(mamapizza.giveRating(8), "Please come again");
+		}
+	
+	@Test
+	public void testMultipleRatings() {
+		BigMamaPizza mamapizza = new BigMamaPizza();
+		DinosTopChippy topchippy = new DinosTopChippy();
+		assertEquals(mamapizza.giveRating(3), "Don't bother coming again");
+		assertEquals(topchippy.giveRating(8), "Please come again");
+		}	
+	}
